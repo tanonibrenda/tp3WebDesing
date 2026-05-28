@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Formulario de inscripción con validaciones nativas para Trabajo Práctico Nº3.">
+    <meta name="author" content="Brenda Y. Tanoni">
+    <title>Trabajo Práctico Nº3</title>
+</head>
+
+<body>
+
+    <nav>
+        <h1>Trabajo Práctico Nº3</h1>
+    </nav>
+
+    <!-- Formulario principal -->
+    <form method="post" action="recibe.php">
+
+        <!-- SECCIÓN 1: DATOS PERSONALES  -->
+        <section>
+            <h2>Punto 2 - Ejercicio 1 y 2</h2>
+
+            <fieldset>
+                <legend>Datos personales</legend>
+
+                <!-- Nombre completo -->
+                <label for="nombre">Nombre completo:</label>
+                <input type="text" id="nombre" name="nombre" required minlength="3" maxlength="50">
+
+                <!-- Edad -->
+                <label for="edad">Edad:</label>
+                <input type="number" id="edad" name="edad" required min="18" max="99">
+
+                <!-- Correo electrónico -->
+                <label for="correo">Correo electrónico:</label>
+                <input type="email" id="correo" name="correo" required placeholder="ejemplo@correo.com">
+
+                <!-- Fecha de nacimiento -->
+                <label for="nacimiento">Fecha de nacimiento:</label>
+                <input type="date" id="nacimiento" name="nacimiento" max="2008-12-31">
+            </fieldset>
+        </section>
+
+        <!-- SECCIÓN 2: PREFERENCIAS Y SELECCIÓN  -->
+        <section>
+            <h2>Punto 2 - Ejercicio 3</h2>
+
+            <!-- Nivel de estudios -->
+            <fieldset>
+                <legend>Nivel de estudios</legend>
+
+                <label for="estudios">Seleccione su nivel:</label>
+                <select id="estudios" name="estudios" required>
+                    <option value="" disabled selected>Seleccione una opción</option>
+                    <optgroup label="Grado">
+                        <option value="secundario">Secundario</option>
+                        <option value="terciario">Terciario</option>
+                        <option value="universitario">Universitario</option>
+                    </optgroup>
+
+                    <optgroup label="Posgrado">
+                        <option value="especializacion">Especialización</option>
+                        <option value="maestria">Maestría</option>
+                        <option value="doctorado">Doctorado</option>
+                    </optgroup>
+                </select>
+            </fieldset>
+
+            <!-- Categoría de inscripción -->
+            <fieldset>
+                <legend>Categoría de inscripción</legend>
+
+                <label for="estudiante">Estudiante</label>
+                <input type="radio" id="estudiante" name="categoria" value="estudiante" required>
+
+                <label for="profesional">Profesional</label>
+                <input type="radio" id="profesional" name="categoria" value="profesional">
+
+                <label for="expositor">Expositor</label>
+                <input type="radio" id="expositor" name="categoria" value="expositor">
+            </fieldset>
+
+            <!-- Áreas de interés -->
+            <fieldset>
+                <legend>Áreas de interés</legend>
+
+                <label for="ia">Inteligencia Artificial</label>
+                <input type="checkbox" id="ia" name="interes[]" value="ia">
+
+                <label for="web">Desarrollo Web</label>
+                <input type="checkbox" id="web" name="interes[]" value="web">
+
+                <label for="datos">Ciencia de Datos</label>
+                <input type="checkbox" id="datos" name="interes[]" value="datos">
+
+                <!-- Sugerencia de ciudad -->
+                <label for="ciudad">Ciudad sugerida:</label>
+                <input type="text" id="ciudad" name="ciudad" list="lista-ciudades">
+
+                <datalist id="lista-ciudades">
+                    <option value="Buenos Aires">
+                    <option value="Córdoba">
+                    <option value="Rosario">
+                </datalist>
+            </fieldset>
+        </section>
+
+        <!-- SECCIÓN 3: INFORMACIÓN ADICIONAL  -->
+        <section>
+            <h2>Punto 2 - Ejercicio 4</h2>
+
+            <fieldset>
+                <legend>Información adicional</legend>
+
+                <!-- Código de invitación -->
+                <label for="codigo">Código de invitación:</label>
+                <input type="text" id="codigo" name="codigo"
+                       pattern="[A-Z]{2}[0-9]{4}"
+                       title="Debe contener 2 letras mayúsculas seguidas de 4 números. Ej: AB1234">
+
+                <!-- Motivo de inscripción -->
+                <label for="motivo">Motivo de inscripción:</label>
+                <textarea id="motivo" name="motivo" required maxlength="200"></textarea>
+
+                <!-- Términos y condiciones -->
+                <label for="terminos">Acepto los términos y condiciones</label>
+                <input type="checkbox" id="terminos" name="terminos" required>
+            </fieldset>
+
+            <!-- Botón de envío -->
+            <button type="submit">Finalizar registro</button>
+        </section>
+
+    </form>
+
+</body>
+</html>
